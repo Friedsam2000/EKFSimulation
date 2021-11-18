@@ -1,7 +1,7 @@
 clear all
 close all
 
-fullMatFileName = 'C:\Users\samue\Documents\Git\VehicleModel_SE_Simulation\elsd\ros_ws\src\2_estimation\elsd_vehiclemodel_stateestimation\EKF_Samuel\simulationResults.mat';
+fullMatFileName = 'C:\Users\samue\Documents\Git\EKF_Samuel\simulationResults.mat';
 if ~exist(fullMatFileName, 'file')
   message = sprintf('Run FourWheelModel.m first to generate Results', fullMatFileName);
   uiwait(warndlg(message));
@@ -80,6 +80,17 @@ MRR = saves.MRR(1:k) +sqrt(Mvar)*randn(size(saves.MFR(1:k)));
 %Steering Angle
 deltaTrue = delta(1:k);
 deltaMeas = deltaTrue+sqrt(deltavar)*randn(size(deltaTrue)) +(0*pi/180);
+
+
+plot(vxGSSMeas,'LineWidth',1.5,'Color',[0.8500, 0.3250, 0.0980]);
+hold on
+plot(vxGSSTrue,'LineWidth',1.5,'Color',[0, 0.4470, 0.7410]);
+ylabel('vx [m/s]');
+grid on
+set(gca,'FontSize',22)
+legend('vx wahr','vx optischer Sensor');
+
+
 
 
 save('sensorResults.mat');

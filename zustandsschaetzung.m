@@ -3,7 +3,7 @@ close all
 
 
 %% Import SensorSimulation
-fullMatFileName = 'C:\Users\samue\Documents\Git\VehicleModel_SE_Simulation\elsd\ros_ws\src\2_estimation\elsd_vehiclemodel_stateestimation\EKF_Samuel\sensorResults.mat';
+fullMatFileName = 'C:\Users\samue\Documents\Git\EKF_Samuel\sensorResults.mat';
 if ~exist(fullMatFileName, 'file')
   message = sprintf('Run FourWheelModel.m first to generate Results', fullMatFileName);
   uiwait(warndlg(message));
