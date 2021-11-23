@@ -32,12 +32,12 @@ sim.Clong = sim.Clong * 1.5;
 sim.IRad = sim.IRad  * 1.5;
 
 %(De-)Activation of Sensors [Hz]
-f_ins_position = 20; 
-f_ins_heading = 20; 
-f_ins_velocity = 20; 
+% f_ins_position = 20; 
+% f_ins_heading = 20; 
+% f_ins_velocity = 20; 
 f_imu = 100; 
-f_odometry = 60;
-f_gss = 100;
+% f_odometry = 60;
+% f_gss = 100;
 
 % P0
 initialUncertainty = [0,0,0,1,0,0,0,0,4,4,4,4];
@@ -129,15 +129,6 @@ for i = 1:N
     gss_inactive_time = gss_inactive_time + dt;
     
 end
-%% Simulate GPS Signal Loss
-
-% total_timesteps = N+1;
-% 
-ins_position_active(1:110000)=0;
-ins_heading_active(1:110000)=0;
-ins_velocity_active(1:110000)=0;
-
-
 
 
 %% Other Definitions

@@ -148,73 +148,73 @@ for k = 1:N-1
     %Automatic driving programs (comment in to drive automatically)
     
 %     accel
-%     if k > 1000
-%         if X(k-1) < 75
-%             speedController = 	1;
-%             controllerFaktor = 	20;
-%             vSpeedCtrl = 120/3.6;
-%             delta(k) = 0;
-%             delta(k) = 0;
-%         elseif vx(k-1) > 0
-%             speedController = 	1;
-%             controllerFaktor = 	10;
-%             vSpeedCtrl = 0;
-%             delta(k) = 0;
-%         end
-%         if X(k-1) > 90 && vx(k-1) < 2
-%             keypress = 'c';
-%         end
-%     end
-    
-% %     skidpad
-        if k>1+1070 && S(4,k) < 9.5940
-                MFL(k) = 70;
-                MFR(k) = 70;
-                MRL(k) = 70;
-                MRR(k) = 70;
-                delta(k) = 0;
-        end
-        if k>1+1070 && S(4,k) >= 9.5940
-                MFL(k) = 0;
-                MFR(k) = 0;
-                MRL(k) = 0;
-                MRR(k) = 0;
-                delta(k) = 0;
-        end
-        if k>2300+1070 && delta(k) < 0.2
+    if k > 1000
+        if X(k-1) < 75
             speedController = 	1;
-            vSpeedCtrl = 9.5940;
-            delta(k) = delta(k-1) + (0.2/50);
-        end
-        if k>2300+1070 && delta(k) >= 0.2
-            delta(k) = 0.2;
-        end
-        
-        if k>13472+1120 && delta(k) > -0.2
-            delta(k) = delta(k-1) - (0.2/50);
-        end
-        if k>13472+1120 && delta(k) <= -0.2
-            delta(k) = -0.2;
-        end
-        if k>24000+1740 && delta(k) < -0.0015
-            delta(k) = delta(k-1) + (0.15/400);
-        end
-        if k>24000+1740 && delta(k) >= -0.0015
+            controllerFaktor = 	20;
+            vSpeedCtrl = 120/3.6;
+            delta(k) = 0;
+            delta(k) = 0;
+        elseif vx(k-1) > 0
+            speedController = 	1;
+            controllerFaktor = 	10;
+            vSpeedCtrl = 0;
             delta(k) = 0;
         end
-        
-        if k>(25000+2000) && vx(k-1) > 2
-            speedController = 	0;
-            MFL(k) = -70;
-            MFR(k) = -70;
-            MRL(k) = -70;
-            MRR(k) = -70;
-            delta(k) = 0;
-        end
-      
-        if k>(25000+2000) && vx(k-1)<2
+        if X(k-1) > 90 && vx(k-1) < 2
             keypress = 'c';
         end
+    end
+    
+% %     skidpad
+%         if k>1+1070 && S(4,k) < 9.5940
+%                 MFL(k) = 70;
+%                 MFR(k) = 70;
+%                 MRL(k) = 70;
+%                 MRR(k) = 70;
+%                 delta(k) = 0;
+%         end
+%         if k>1+1070 && S(4,k) >= 9.5940
+%                 MFL(k) = 0;
+%                 MFR(k) = 0;
+%                 MRL(k) = 0;
+%                 MRR(k) = 0;
+%                 delta(k) = 0;
+%         end
+%         if k>2300+1070 && delta(k) < 0.2
+%             speedController = 	1;
+%             vSpeedCtrl = 9.5940;
+%             delta(k) = delta(k-1) + (0.2/50);
+%         end
+%         if k>2300+1070 && delta(k) >= 0.2
+%             delta(k) = 0.2;
+%         end
+%         
+%         if k>13472+1120 && delta(k) > -0.2
+%             delta(k) = delta(k-1) - (0.2/50);
+%         end
+%         if k>13472+1120 && delta(k) <= -0.2
+%             delta(k) = -0.2;
+%         end
+%         if k>24000+1740 && delta(k) < -0.0015
+%             delta(k) = delta(k-1) + (0.15/400);
+%         end
+%         if k>24000+1740 && delta(k) >= -0.0015
+%             delta(k) = 0;
+%         end
+%         
+%         if k>(25000+2000) && vx(k-1) > 2
+%             speedController = 	0;
+%             MFL(k) = -70;
+%             MFR(k) = -70;
+%             MRL(k) = -70;
+%             MRR(k) = -70;
+%             delta(k) = 0;
+%         end
+%       
+%         if k>(25000+2000) && vx(k-1)<2
+%             keypress = 'c';
+%         end
     
     %% Model
 
